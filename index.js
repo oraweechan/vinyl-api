@@ -1,11 +1,13 @@
 //1. add morgan
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 const vinylsController = require('./controllers/vinyls')
 const app = express()
  
+app.use(cors())
 app.use(morgan('combined'))
-//enable middlewaren for express to read for postman extended false means
+//enable middleware for express to read for postman extended false means
 app.use(express.urlencoded({extended: false}))
 
 //3. POST / vinyls (moved to controller file )
